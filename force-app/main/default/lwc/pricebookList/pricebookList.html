@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Price Book Entries" icon-name="standard:pricebook">
+        <lightning-button label="Refresh" slot="actions" onclick={refreshData}></lightning-button>
+        <div class="slds-m-around_small">
+            <template if:true={data}>
+                <c-extended-table key-field="id" data={data} columns={columns} show-row-number-column
+                    row-number-offset={rowOffset} hide-checkbox-column>
+                </c-extended-table>
+            </template>
+            <template if:false={data}>
+                <p>No Results found.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

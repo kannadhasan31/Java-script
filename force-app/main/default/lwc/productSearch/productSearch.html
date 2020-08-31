@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Products" icon-name="standard:product">
+        <div class="slds-var-m-around_medium">
+            <lightning-layout vertical-align="end" class="slds-var-m-bottom_small">
+                <lightning-layout-item flexibility="grow">
+                    <lightning-input type="search" onchange={handleKeyChange} onkeypress={handleKeyPress} label="Search"
+                        value={searchKey}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-p-left_xx-small">
+                    <lightning-button label="search" onclick={handleSearch}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <div class="slds-m-around_small" onproductselect={handleProductSelect}>
+            <template if:true={products}>
+                <c-extended-table key-field="Id" data={products} columns={columns} show-row-number-column
+                    row-number-offset={rowOffset} hide-checkbox-column>
+                </c-extended-table>
+            </template>
+        </div>
+    </lightning-card>
+</template>
